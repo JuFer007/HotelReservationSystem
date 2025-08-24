@@ -1,0 +1,26 @@
+.root {
+    -fx-background-color: #1c2325; /* Verde claro */
+    -fx-font-family: "Arial";
+}
+
+.anchorPane {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.button {
+    -fx-background-color: #1c2325;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}
+
+.button-close {
+    -fx-background-color: transparent;
+}
