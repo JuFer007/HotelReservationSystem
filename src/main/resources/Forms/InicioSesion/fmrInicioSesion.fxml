@@ -5,37 +5,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import java.awt.Image?>
-<AnchorPane prefHeight="483.0" prefWidth="715.0" stylesheets="@../../styleInicioSesion.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Formularios.fmrInicioSesion">
+<AnchorPane prefHeight="483.0" prefWidth="724.0" stylesheets="@../../styleGeneral.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Forms.InicioSesion.Prueba">
    <children>
-      <AnchorPane layoutX="140.0" layoutY="52.0" prefHeight="378.0" prefWidth="434.0" styleClass="anchorPane" stylesheets="@../../styleInicioSesion.css">
+      <AnchorPane layoutX="179.0" layoutY="70.0" prefHeight="342.0" prefWidth="366.0" styleClass="anchorPane" stylesheets="@../../styleGeneral.css">
          <children>
-            <ImageView fitHeight="67.0" fitWidth="65.0" layoutX="185.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="151.0" layoutY="294.0" mnemonicParsing="false" text="Ingresar" />
+            <ImageView fitHeight="68.0" fitWidth="64.0" layoutX="151.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Icons/usuario.png" />
                </image>
             </ImageView>
-            <Label layoutX="156.0" layoutY="109.0" prefHeight="35.0" prefWidth="123.0" text="Incio de Sesión" textAlignment="CENTER">
+            <Label layoutX="103.0" layoutY="96.0" prefHeight="23.0" prefWidth="160.0" text="Inicio Sesión">
                <font>
-                  <Font name="Bernard MT Condensed" size="21.0" />
+                  <Font name="Bodoni MT Black" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="104.0" layoutY="163.0" prefHeight="23.0" prefWidth="58.0" text="Usuario:" textAlignment="CENTER">
+            <Label layoutX="75.0" layoutY="145.0" prefHeight="23.0" prefWidth="57.0" text="Usuario:">
                <font>
-                  <Font name="Times New Roman" size="15.0" />
+                  <Font name="Baskerville Old Face" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="104.0" layoutY="231.0" prefHeight="23.0" prefWidth="77.0" text="Contraseña:" textAlignment="CENTER">
+            <TextField layoutX="77.0" layoutY="172.0" prefHeight="23.0" prefWidth="214.0" promptText="Nombre de Usuario" />
+            <Label layoutX="75.0" layoutY="206.0" prefHeight="23.0" prefWidth="75.0" text="Contraseña:">
                <font>
-                  <Font name="Times New Roman" size="15.0" />
+                  <Font name="Baskerville Old Face" size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="104.0" layoutY="194.0" prefHeight="23.0" prefWidth="225.0" promptText="NombreUsuario" />
-            <PasswordField layoutX="104.0" layoutY="261.0" prefHeight="23.0" prefWidth="226.0" promptText="Contraseña" />
-            <Button layoutX="177.0" layoutY="310.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="78.0" stylesheets="@../../styleInicioSesion.css" text="Ingresar" />
+            <PasswordField layoutX="77.0" layoutY="238.0" prefHeight="23.0" prefWidth="214.0" promptText="Contraseña" />
          </children></AnchorPane>
-      <Button layoutX="679.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="36.0" styleClass="button-close" stylesheets="@../../styleInicioSesion.css" />
-      <ImageView fitHeight="23.0" fitWidth="20.0" layoutX="687.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="599.0" layoutY="58.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="19.0" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="689.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Icons/cerrar.png" />
          </image>

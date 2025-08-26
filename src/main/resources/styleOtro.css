@@ -1,0 +1,27 @@
+.anchor-pane {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);
+    -fx-padding: 10px;
+}
+
+.button {
+    -fx-background-color: #a1c379;
+    -fx-text-fill: #000000;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+}
+
+.anchor-paneReporte {
+    -fx-background-color: linear-gradient(to bottom right, #1c2325, #64754d, #6a7c63);
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 15, 0, 0, 8);
+    -fx-padding: 12px;
+}

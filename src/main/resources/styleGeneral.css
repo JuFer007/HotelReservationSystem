@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: #1c2325; /* Verde claro */
+    -fx-background-color: #1c2325;
     -fx-font-family: "Arial";
 }
 
@@ -23,4 +23,13 @@
 
 .button-close {
     -fx-background-color: transparent;
+}
+
+
+.button-cerrarSesion {
+    -fx-background-color: a1c379;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-width: 2px;
+    -fx-text-fill: #000000;
 }
