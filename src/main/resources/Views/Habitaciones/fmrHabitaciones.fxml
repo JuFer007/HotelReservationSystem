@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="489.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HabitacionesController">
+   <children>
+      <TableView fx:id="tablaHabitaciones" layoutX="14.0" layoutY="54.0" prefHeight="420.0" prefWidth="588.0">
+        <columns>
+          <TableColumn fx:id="columnNumeroHabitacion" prefWidth="150.19998741149902" text="Número de Habitación" />
+          <TableColumn fx:id="columnTipoHabitacion" prefWidth="128.19998168945312" text="Tipo Habitación" />
+            <TableColumn fx:id="columnEstadoHabitacion" prefWidth="133.79998779296875" text="Estado Habitación" />
+            <TableColumn fx:id="columnCodigoHabitacion" prefWidth="175.39999389648438" text="Código Habitación" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="comboBoxEstado" layoutX="264.0" layoutY="14.0" prefWidth="150.0" />
+      <Label layoutX="202.0" layoutY="18.0" text="Estado:">
+         <font>
+            <Font name="Bodoni MT Black" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

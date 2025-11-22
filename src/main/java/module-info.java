@@ -12,10 +12,12 @@ module SystemHotel {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires java.desktop;
 
-    opens Formularios to javafx.fxml;
+    opens Controller to javafx.fxml;
 
-    exports Formularios;
+    exports Controller;
     exports Clases;
-    exports ConexionBD;
+    exports Conection;
+    exports Model;
 }

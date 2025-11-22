@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="517.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PrincipalController">
+   <children>
+      <AnchorPane prefHeight="518.0" prefWidth="264.0" styleClass="root" stylesheets="@../../CSS/styleGeneral.css">
+         <children>
+            <ImageView fitHeight="213.0" fitWidth="182.0" layoutX="41.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/logoHotel.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="32.0" layoutY="95.0" text="¡Bienvenido al Sistema" textFill="WHITE">
+               <font>
+                  <Font name="Bernard MT Condensed" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="123.0" text="de Reservas!" textFill="WHITE">
+               <font>
+                  <Font name="Bernard MT Condensed" size="23.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnCerrarSesion" layoutX="69.0" layoutY="395.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="125.0" styleClass="button-cerrarSesion" stylesheets="@../../CSS/styleGeneral.css" text="Cerrar Sesión">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/cerrar-sesion.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <MenuBar fx:id="menuReservas" layoutX="272.0" layoutY="1.0" prefHeight="26.0" prefWidth="582.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Menú Reservas">
+            <items>
+              <MenuItem fx:id="nuevaReserva" mnemonicParsing="false" text="Nueva Reserva">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/nuevareserva.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+              <MenuItem fx:id="modificarEliminarReserva" mnemonicParsing="false" text="Modificar o Eliminar Reserva">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/eliminarmodificarreserva.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+            </items>
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/reserva.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Menu>
+          <Menu fx:id="menuHabitaciones" mnemonicParsing="false" text="Menú de Habitaciones">
+            <items>
+              <MenuItem fx:id="menuVerificarDispo" mnemonicParsing="false" text="Verificar Disponibilidad">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/disponibilidad.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+            </items>
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/verHabitaciones.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Menu>
+          <Menu fx:id="menuReportes" mnemonicParsing="false" text="Reportes">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Reporte General" />
+            </items>
+            <items>
+              <MenuItem fx:id="menuReporteGeneral" mnemonicParsing="false" text="Reporte General">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/reporteGen.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+            </items>
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/reportes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Menu>
+
+        </menus>
+      </MenuBar>
+      <Button layoutX="656.0" layoutY="266.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="17.0" styleClass="button-close" stylesheets="@../../CSS/styleGeneral.css" />
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="857.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Icons/cerrar.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="anchorPanePrincipal" layoutX="264.0" layoutY="27.0" prefHeight="490.0" prefWidth="616.0" />
+   </children>
+</AnchorPane>
