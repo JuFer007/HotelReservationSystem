@@ -24,7 +24,7 @@
                   <Font name="Bernard MT Condensed" size="23.0" />
                </font>
             </Label>
-            <Button fx:id="btnCerrarSesion" layoutX="69.0" layoutY="395.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="125.0" styleClass="button-cerrarSesion" stylesheets="@../../CSS/styleGeneral.css" text="Cerrar Sesión">
+            <Button fx:id="btnCerrarSesion" layoutX="69.0" layoutY="395.0" mnemonicParsing="false" onAction="#Logout" prefHeight="28.0" prefWidth="125.0" styleClass="button-cerrarSesion" stylesheets="@../../CSS/styleGeneral.css" text="Cerrar Sesión">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -35,11 +35,11 @@
             </Button>
          </children>
       </AnchorPane>
-      <MenuBar fx:id="menuReservas" layoutX="272.0" layoutY="1.0" prefHeight="26.0" prefWidth="582.0">
+      <MenuBar fx:id="menuReservas" layoutX="265.0" layoutY="1.0" prefHeight="26.0" prefWidth="615.0">
         <menus>
           <Menu mnemonicParsing="false" text="Menú Reservas">
             <items>
-              <MenuItem fx:id="nuevaReserva" mnemonicParsing="false" text="Nueva Reserva">
+              <MenuItem fx:id="nuevaReserva" mnemonicParsing="false" onAction="#NuevaReserva" text="Nueva Reserva">
                      <graphic>
                         <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -47,7 +47,7 @@
                            </image>
                         </ImageView>
                      </graphic></MenuItem>
-              <MenuItem fx:id="modificarEliminarReserva" mnemonicParsing="false" text="Modificar o Eliminar Reserva">
+              <MenuItem fx:id="modificarEliminarReserva" mnemonicParsing="false" onAction="#ModificarReserva" text="Modificar o Eliminar Reserva">
                      <graphic>
                         <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,7 +66,7 @@
           </Menu>
           <Menu fx:id="menuHabitaciones" mnemonicParsing="false" text="Menú de Habitaciones">
             <items>
-              <MenuItem fx:id="menuVerificarDispo" mnemonicParsing="false" text="Verificar Disponibilidad">
+              <MenuItem fx:id="menuVerificarDispo" mnemonicParsing="false" onAction="#CHabitacion" text="Verificar Disponibilidad">
                      <graphic>
                         <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -85,10 +85,7 @@
           </Menu>
           <Menu fx:id="menuReportes" mnemonicParsing="false" text="Reportes">
             <items>
-              <MenuItem mnemonicParsing="false" text="Reporte General" />
-            </items>
-            <items>
-              <MenuItem fx:id="menuReporteGeneral" mnemonicParsing="false" text="Reporte General">
+              <MenuItem fx:id="menuReporteGeneral" mnemonicParsing="false" onAction="#CReportes" text="Reporte General">
                      <graphic>
                         <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -108,12 +105,23 @@
 
         </menus>
       </MenuBar>
-      <Button layoutX="656.0" layoutY="266.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="17.0" styleClass="button-close" stylesheets="@../../CSS/styleGeneral.css" />
-      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="857.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Icons/cerrar.png" />
-         </image>
-      </ImageView>
-      <AnchorPane fx:id="anchorPanePrincipal" layoutX="264.0" layoutY="27.0" prefHeight="490.0" prefWidth="616.0" />
+      <AnchorPane fx:id="anchorPanePrincipal" layoutX="265.0" layoutY="27.0" prefHeight="491.0" prefWidth="615.0" />
+      <Button fx:id="btnCerrarVentana" layoutX="842.0" layoutY="1.0" mnemonicParsing="false" onAction="#CloserWindow" styleClass="button-close" stylesheets="@../../CSS/styleGeneral.css">
+         <graphic>
+            <ImageView fitHeight="99.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/cerrar.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnMinizarVentana" layoutX="819.0" layoutY="1.0" mnemonicParsing="false" onAction="#Minimizer" styleClass="button-close" stylesheets="@../../CSS/styleGeneral.css">
+         <graphic>
+            <ImageView fitHeight="99.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/minimizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

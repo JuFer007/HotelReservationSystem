@@ -9,7 +9,7 @@
    <children>
       <AnchorPane layoutX="179.0" layoutY="70.0" prefHeight="342.0" prefWidth="366.0" styleClass="anchorPane" stylesheets="@../../CSS/styleGeneral.css">
          <children>
-            <Button fx:id="btnIngresar" layoutX="151.0" layoutY="294.0" mnemonicParsing="false" text="Ingresar" />
+            <Button fx:id="btnIngresar" layoutX="151.0" layoutY="294.0" mnemonicParsing="false" onAction="#Login" text="Ingresar" />
             <ImageView fitHeight="68.0" fitWidth="64.0" layoutX="151.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Icons/usuario.png" />
@@ -33,11 +33,22 @@
             </Label>
             <PasswordField fx:id="cajaContraseña" layoutX="77.0" layoutY="238.0" prefHeight="23.0" prefWidth="214.0" promptText="Contraseña" />
          </children></AnchorPane>
-      <Button layoutX="599.0" layoutY="58.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="19.0" />
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="689.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Icons/cerrar.png" />
-         </image>
-      </ImageView>
+      <Button fx:id="btnCerrarVentana" layoutX="674.0" layoutY="14.0" mnemonicParsing="false" onAction="#CloserWindow" prefHeight="23.0" prefWidth="19.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/cerrar.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btnMinizarVentana" layoutX="638.0" layoutY="14.0" mnemonicParsing="false" onAction="#Minimizer" prefHeight="23.0" prefWidth="19.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/minimizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

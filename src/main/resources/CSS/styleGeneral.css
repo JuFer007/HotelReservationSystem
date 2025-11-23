@@ -19,10 +19,12 @@
     -fx-background-radius: 8px;
     -fx-border-radius: 8px;
     -fx-border-width: 2px;
+    -fx-cursor: hand;
 }
 
 .button-close {
     -fx-background-color: transparent;
+    -fx-cursor: hand;
 }
 
 
