@@ -1,5 +1,4 @@
 package Controller;
-
 import Conection.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +14,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class InicioSesionController {
-
     @FXML private TextField cajaNombreUsuario;
     @FXML private PasswordField cajaContraseña;
     @FXML private Button btnIngresar;

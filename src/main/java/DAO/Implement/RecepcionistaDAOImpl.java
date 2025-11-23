@@ -1,9 +1,7 @@
 package DAO.Implement;
-
 import Conection.DatabaseConnection;
 import DAO.Interfaces.IRecepcionistaDAO;
 import Model.Recepcionista;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

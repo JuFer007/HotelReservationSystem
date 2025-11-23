@@ -1,5 +1,4 @@
 package Conection;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,7 +6,6 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     private static DatabaseConnection instance;
     private Connection connection;
-
     private static final String URL = "jdbc:mysql://localhost:3306/HotelSystem?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
     private static final String PASSWORD = "123456";
@@ -43,7 +41,6 @@ public class DatabaseConnection {
 
     public Connection getConnection() {
         try {
-            // Verificar si la conexión está cerrada o es nula
             if (connection == null || connection.isClosed()) {
                 System.out.println("Reconectando a la base de datos...");
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);

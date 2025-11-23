@@ -2,7 +2,6 @@ package DAO.Implement;
 import Conection.DatabaseConnection;
 import DAO.Interfaces.IPagoDAO;
 import Model.Pago;
-
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;

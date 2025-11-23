@@ -1,10 +1,8 @@
 package Controller;
-
 import DAO.Implement.ClienteDAOImpl;
 import DAO.Implement.HabitacionDAOImpl;
 import DAO.Implement.ReservaDAOImpl;
 import Model.Cliente;
-import Model.Habitacion;
 import Model.Reserva;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;

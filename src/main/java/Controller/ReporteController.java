@@ -1,5 +1,4 @@
 package Controller;
-
 import DAO.Implement.ClienteDAOImpl;
 import DAO.Implement.HabitacionDAOImpl;
 import DAO.Implement.ReservaDAOImpl;
@@ -9,11 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
-
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.TextStyle;
 import java.util.*;
 import java.util.stream.Collectors;
 

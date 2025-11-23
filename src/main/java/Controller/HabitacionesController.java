@@ -1,5 +1,4 @@
 package Controller;
-
 import DAO.Implement.HabitacionDAOImpl;
 import Model.Habitacion;
 import javafx.collections.FXCollections;
@@ -8,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -21,11 +19,9 @@ public class HabitacionesController implements Initializable {
     @FXML private TableColumn<Habitacion, String> columnEstadoHabitacion;
     @FXML private TableColumn<Habitacion, Integer> columnCodigoHabitacion;
     @FXML private ComboBox<String> comboBoxEstado;
-
     private final HabitacionDAOImpl habitacionDAO = new HabitacionDAOImpl();
-
     private ObservableList<Habitacion> listaHabitaciones;
-    private List<Habitacion> todasLasHabitaciones; // Para filtrado
+    private List<Habitacion> todasLasHabitaciones;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -177,6 +173,6 @@ public class HabitacionesController implements Initializable {
 
     public void recargarHabitaciones() {
         cargarHabitaciones();
-        filtrarPorEstado(); // Aplicar filtro actual
+        filtrarPorEstado(); 
     }
 }
