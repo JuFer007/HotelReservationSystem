@@ -159,7 +159,7 @@ public class NuevaReservaController implements Initializable {
             apellidos += " " + cliente.getApellidoMaterno();
         }
         apellidosNuevaReserva.setText(apellidos);
-        DniNuevaReserva.setText(cliente.getDni()); // Llenar DNI
+        DniNuevaReserva.setText(cliente.getDni());
         correoNuevaReserva.setText(cliente.getEmail() != null ? cliente.getEmail() : "");
         cajaTelefNuevaReserva.setText(cliente.getTelefono());
     }

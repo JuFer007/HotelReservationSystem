@@ -1,10 +1,12 @@
 package DAO.Implement;
+
 import Conection.DatabaseConnection;
 import DAO.Interfaces.IReservaDAO;
 import Model.Cliente;
 import Model.Empleado;
 import Model.Habitacion;
 import Model.Reserva;
+import Model.TipoHabitacion;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -35,13 +37,16 @@ public class ReservaDAOImpl implements IReservaDAO {
     @Override
     public Reserva read(int id) {
         String sql = "SELECT r.*, " +
-                "c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.dni AS cDni, " +
+                "c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.apellidoMaterno AS cApellidoM, " +
+                "c.dni AS cDni, c.telefono AS cTelefono, c.email AS cEmail, " +
                 "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, " +
-                "h.numeroHabitacion " +
+                "h.numeroHabitacion, h.estado AS hEstado, " +
+                "t.idTipoHabitacion, t.descripcion AS tDescripcion, t.precio AS tPrecio " +
                 "FROM Reserva r " +
                 "INNER JOIN Cliente c ON r.idCliente = c.idCliente " +
                 "INNER JOIN Empleado e ON r.idEmpleado = e.idEmpleado " +
                 "INNER JOIN Habitacion h ON r.idHabitacion = h.idHabitacion " +
+                "INNER JOIN TipoHabitacion t ON h.idTipoHabitacion = t.idTipoHabitacion " +
                 "WHERE r.idReserva = ?";
         try (PreparedStatement ps = db.getConnection().prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -90,19 +95,23 @@ public class ReservaDAOImpl implements IReservaDAO {
     public List<Reserva> findAll() {
         List<Reserva> lista = new ArrayList<>();
         String sql = "SELECT r.*, " +
-                "c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.dni AS cDni, " +
+                "c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.apellidoMaterno AS cApellidoM, " +
+                "c.dni AS cDni, c.telefono AS cTelefono, c.email AS cEmail, " +
                 "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, " +
-                "h.numeroHabitacion " +
+                "h.numeroHabitacion, h.estado AS hEstado, " +
+                "t.idTipoHabitacion, t.descripcion AS tDescripcion, t.precio AS tPrecio " +
                 "FROM Reserva r " +
                 "INNER JOIN Cliente c ON r.idCliente = c.idCliente " +
                 "INNER JOIN Empleado e ON r.idEmpleado = e.idEmpleado " +
                 "INNER JOIN Habitacion h ON r.idHabitacion = h.idHabitacion " +
+                "INNER JOIN TipoHabitacion t ON h.idTipoHabitacion = t.idTipoHabitacion " +
                 "ORDER BY r.fechaReserva DESC";
         try (Statement st = db.getConnection().createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) lista.add(mapearCompleto(rs));
         } catch (SQLException e) {
             System.err.println("Error findAll Reserva: " + e.getMessage());
+            e.printStackTrace();
         }
         return lista;
     }
@@ -110,12 +119,17 @@ public class ReservaDAOImpl implements IReservaDAO {
     @Override
     public List<Reserva> findByCliente(int idCliente) {
         List<Reserva> lista = new ArrayList<>();
-        String sql = "SELECT r.*, c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.dni AS cDni, " +
-                "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, h.numeroHabitacion " +
+        String sql = "SELECT r.*, " +
+                "c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.apellidoMaterno AS cApellidoM, " +
+                "c.dni AS cDni, c.telefono AS cTelefono, c.email AS cEmail, " +
+                "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, " +
+                "h.numeroHabitacion, h.estado AS hEstado, " +
+                "t.idTipoHabitacion, t.descripcion AS tDescripcion, t.precio AS tPrecio " +
                 "FROM Reserva r " +
                 "INNER JOIN Cliente c ON r.idCliente = c.idCliente " +
                 "INNER JOIN Empleado e ON r.idEmpleado = e.idEmpleado " +
                 "INNER JOIN Habitacion h ON r.idHabitacion = h.idHabitacion " +
+                "INNER JOIN TipoHabitacion t ON h.idTipoHabitacion = t.idTipoHabitacion " +
                 "WHERE r.idCliente = ?";
         try (PreparedStatement ps = db.getConnection().prepareStatement(sql)) {
             ps.setInt(1, idCliente);
@@ -130,12 +144,17 @@ public class ReservaDAOImpl implements IReservaDAO {
     @Override
     public List<Reserva> findByHabitacion(int idHabitacion) {
         List<Reserva> lista = new ArrayList<>();
-        String sql = "SELECT r.*, c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.dni AS cDni, " +
-                "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, h.numeroHabitacion " +
+        String sql = "SELECT r.*, " +
+                "c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.apellidoMaterno AS cApellidoM, " +
+                "c.dni AS cDni, c.telefono AS cTelefono, c.email AS cEmail, " +
+                "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, " +
+                "h.numeroHabitacion, h.estado AS hEstado, " +
+                "t.idTipoHabitacion, t.descripcion AS tDescripcion, t.precio AS tPrecio " +
                 "FROM Reserva r " +
                 "INNER JOIN Cliente c ON r.idCliente = c.idCliente " +
                 "INNER JOIN Empleado e ON r.idEmpleado = e.idEmpleado " +
                 "INNER JOIN Habitacion h ON r.idHabitacion = h.idHabitacion " +
+                "INNER JOIN TipoHabitacion t ON h.idTipoHabitacion = t.idTipoHabitacion " +
                 "WHERE r.idHabitacion = ?";
         try (PreparedStatement ps = db.getConnection().prepareStatement(sql)) {
             ps.setInt(1, idHabitacion);
@@ -150,12 +169,17 @@ public class ReservaDAOImpl implements IReservaDAO {
     @Override
     public List<Reserva> findByEstado(String estado) {
         List<Reserva> lista = new ArrayList<>();
-        String sql = "SELECT r.*, c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.dni AS cDni, " +
-                "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, h.numeroHabitacion " +
+        String sql = "SELECT r.*, " +
+                "c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.apellidoMaterno AS cApellidoM, " +
+                "c.dni AS cDni, c.telefono AS cTelefono, c.email AS cEmail, " +
+                "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, " +
+                "h.numeroHabitacion, h.estado AS hEstado, " +
+                "t.idTipoHabitacion, t.descripcion AS tDescripcion, t.precio AS tPrecio " +
                 "FROM Reserva r " +
                 "INNER JOIN Cliente c ON r.idCliente = c.idCliente " +
                 "INNER JOIN Empleado e ON r.idEmpleado = e.idEmpleado " +
                 "INNER JOIN Habitacion h ON r.idHabitacion = h.idHabitacion " +
+                "INNER JOIN TipoHabitacion t ON h.idTipoHabitacion = t.idTipoHabitacion " +
                 "WHERE r.estadoReserva = ?";
         try (PreparedStatement ps = db.getConnection().prepareStatement(sql)) {
             ps.setString(1, estado);
@@ -170,12 +194,17 @@ public class ReservaDAOImpl implements IReservaDAO {
     @Override
     public List<Reserva> findByFechas(LocalDate inicio, LocalDate fin) {
         List<Reserva> lista = new ArrayList<>();
-        String sql = "SELECT r.*, c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.dni AS cDni, " +
-                "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, h.numeroHabitacion " +
+        String sql = "SELECT r.*, " +
+                "c.nombre AS cNombre, c.apellidoPaterno AS cApellidoP, c.apellidoMaterno AS cApellidoM, " +
+                "c.dni AS cDni, c.telefono AS cTelefono, c.email AS cEmail, " +
+                "e.nombre AS eNombre, e.apellidoPaterno AS eApellidoP, " +
+                "h.numeroHabitacion, h.estado AS hEstado, " +
+                "t.idTipoHabitacion, t.descripcion AS tDescripcion, t.precio AS tPrecio " +
                 "FROM Reserva r " +
                 "INNER JOIN Cliente c ON r.idCliente = c.idCliente " +
                 "INNER JOIN Empleado e ON r.idEmpleado = e.idEmpleado " +
                 "INNER JOIN Habitacion h ON r.idHabitacion = h.idHabitacion " +
+                "INNER JOIN TipoHabitacion t ON h.idTipoHabitacion = t.idTipoHabitacion " +
                 "WHERE r.fechaReserva BETWEEN ? AND ?";
         try (PreparedStatement ps = db.getConnection().prepareStatement(sql)) {
             ps.setDate(1, Date.valueOf(inicio));
@@ -213,23 +242,39 @@ public class ReservaDAOImpl implements IReservaDAO {
                 rs.getString("estadoReserva")
         );
 
+        // Mapear Cliente COMPLETO con todos los campos
         Cliente c = new Cliente();
         c.setIdCliente(rs.getInt("idCliente"));
         c.setNombre(rs.getString("cNombre"));
         c.setApellidoPaterno(rs.getString("cApellidoP"));
+        c.setApellidoMaterno(rs.getString("cApellidoM"));
         c.setDni(rs.getString("cDni"));
+        c.setTelefono(rs.getString("cTelefono"));  // ← AGREGADO
+        c.setEmail(rs.getString("cEmail"));        // ← AGREGADO
         r.setCliente(c);
 
+        // Mapear Empleado
         Empleado e = new Empleado();
         e.setIdEmpleado(rs.getInt("idEmpleado"));
         e.setNombre(rs.getString("eNombre"));
         e.setApellidoPaterno(rs.getString("eApellidoP"));
         r.setEmpleado(e);
 
+        // Mapear Habitación COMPLETA con TipoHabitacion
         Habitacion h = new Habitacion();
         h.setIdHabitacion(rs.getInt("idHabitacion"));
         h.setNumeroHabitacion(rs.getString("numeroHabitacion"));
+        h.setEstado(rs.getString("hEstado"));
+
+        // Mapear TipoHabitacion
+        TipoHabitacion t = new TipoHabitacion();
+        t.setIdTipoHabitacion(rs.getInt("idTipoHabitacion"));
+        t.setDescripcion(rs.getString("tDescripcion"));
+        t.setPrecio(rs.getDouble("tPrecio"));
+
+        h.setTipoHabitacion(t);
         r.setHabitacion(h);
+
         return r;
     }
 }

@@ -131,7 +131,7 @@ INSERT INTO Administrador (idEmpleado, correoElectronico) VALUES
 
 -- 6) Cliente (5 inserts)
 INSERT INTO Cliente (nombre, apellidoPaterno, apellidoMaterno, dni, telefono, email) VALUES
-('Luis', 'Huaman', 'Cruz', '11122233', '+51 945111222', 'luis.huaman@example.com'),
+('Luis', 'Chafloque', 'Avellaneda', '11122233', '+51 945111222', 'luis.huaman@example.com'),
 ('Maria', 'Lopez', 'Sanchez', '22233344', '+51 945222333', 'maria.lopez@example.com'),
 ('Pedro', 'Quispe', 'Ayala', '33344455', '+51 945333444', 'pedro.quispe@example.com'),
 ('Sofia', 'Reyes', 'Gomez', '44455566', '+51 945444555', 'sofia.reyes@example.com'),
