@@ -1,11 +1,9 @@
 package DAO.Implement;
+
 import Conection.DatabaseConnection;
 import DAO.Interfaces.IClienteDAO;
 import Model.Cliente;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,18 +13,30 @@ public class ClienteDAOImpl implements IClienteDAO {
     @Override
     public boolean create(Cliente c) {
         String sql = "INSERT INTO Cliente (nombre, apellidoPaterno, apellidoMaterno, dni, telefono, email) VALUES (?,?,?,?,?,?)";
-        try (PreparedStatement ps = db.getConnection().prepareStatement(sql)) {
+        try (PreparedStatement ps = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, c.getNombre());
             ps.setString(2, c.getApellidoPaterno());
             ps.setString(3, c.getApellidoMaterno());
             ps.setString(4, c.getDni());
             ps.setString(5, c.getTelefono());
             ps.setString(6, c.getEmail());
-            return ps.executeUpdate() > 0;
+
+            int result = ps.executeUpdate();
+
+            if (result > 0) {
+                ResultSet rs = ps.getGeneratedKeys();
+                if (rs.next()) {
+                    c.setIdCliente(rs.getInt(1));
+                    System.out.println("Cliente insertado con ID: " + c.getIdCliente());
+                }
+                return true;
+            }
         } catch (SQLException e) {
             System.err.println("Error create Cliente: " + e.getMessage());
+            e.printStackTrace();
             return false;
         }
+        return false;
     }
 
     @Override
@@ -75,7 +85,7 @@ public class ClienteDAOImpl implements IClienteDAO {
     @Override
     public List<Cliente> findAll() {
         List<Cliente> lista = new ArrayList<>();
-        String sql = "SELECT * FROM Cliente";
+        String sql = "SELECT * FROM Cliente ORDER BY apellidoPaterno, nombre";
         try (Statement st = db.getConnection().createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) lista.add(mapear(rs));

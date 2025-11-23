@@ -49,7 +49,7 @@
                   <Font name="Times New Roman" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="btnAgregarReserva" layoutX="218.0" layoutY="151.0" mnemonicParsing="false" stylesheets="@../../CSS/styleOtro.css" text="Agregar Reserva">
+            <Button fx:id="btnAgregarReserva" layoutX="363.0" layoutY="152.0" mnemonicParsing="false" stylesheets="@../../CSS/styleOtro.css" text="Agregar Reserva">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -59,6 +59,12 @@
                </graphic>
             </Button>
             <DatePicker fx:id="fechaSalidaNuevaReserva" layoutX="363.0" layoutY="75.0" prefHeight="26.0" prefWidth="166.0" />
+            <Label layoutX="63.0" layoutY="143.0" text="DNI:">
+               <font>
+                  <Font name="Times New Roman" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="DniNuevaReserva" layoutX="121.0" layoutY="139.0" />
          </children></AnchorPane>
       <ListView fx:id="listaClientes" layoutX="386.0" layoutY="47.0" prefHeight="218.0" prefWidth="215.0" />
       <TableView fx:id="tablaHabitaciones" layoutX="14.0" layoutY="47.0" prefHeight="218.0" prefWidth="364.0">
