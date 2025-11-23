@@ -22,10 +22,8 @@ public class HabitacionesController implements Initializable {
     @FXML private TableColumn<Habitacion, Integer> columnCodigoHabitacion;
     @FXML private ComboBox<String> comboBoxEstado;
 
-    // DAO
     private final HabitacionDAOImpl habitacionDAO = new HabitacionDAOImpl();
 
-    // Lista observable
     private ObservableList<Habitacion> listaHabitaciones;
     private List<Habitacion> todasLasHabitaciones; // Para filtrado
 
@@ -38,11 +36,9 @@ public class HabitacionesController implements Initializable {
     }
 
     private void configurarTabla() {
-        // Configurar columnas
         columnCodigoHabitacion.setCellValueFactory(new PropertyValueFactory<>("idHabitacion"));
         columnNumeroHabitacion.setCellValueFactory(new PropertyValueFactory<>("numeroHabitacion"));
 
-        // Columna Tipo Habitación - obtener descripción del tipo
         columnTipoHabitacion.setCellValueFactory(cellData -> {
             Habitacion hab = cellData.getValue();
             if (hab.getTipoHabitacion() != null) {
@@ -55,7 +51,6 @@ public class HabitacionesController implements Initializable {
 
         columnEstadoHabitacion.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
-        // Aplicar colores a los estados
         columnEstadoHabitacion.setCellFactory(column -> new TableCell<Habitacion, String>() {
             @Override
             protected void updateItem(String estado, boolean empty) {
@@ -87,7 +82,6 @@ public class HabitacionesController implements Initializable {
     }
 
     private void configurarComboBox() {
-        // Agregar opciones al ComboBox
         ObservableList<String> estados = FXCollections.observableArrayList(
                 "Todas",
                 "Disponible",
@@ -96,26 +90,22 @@ public class HabitacionesController implements Initializable {
                 "Mantenimiento"
         );
         comboBoxEstado.setItems(estados);
-        comboBoxEstado.setValue("Todas"); // Valor por defecto
+        comboBoxEstado.setValue("Todas");
     }
 
     private void cargarHabitaciones() {
-        // Cargar todas las habitaciones
         todasLasHabitaciones = habitacionDAO.findAll();
         listaHabitaciones = FXCollections.observableArrayList(todasLasHabitaciones);
         tablaHabitaciones.setItems(listaHabitaciones);
 
         System.out.println("Habitaciones cargadas: " + todasLasHabitaciones.size());
 
-        // Mostrar estadísticas en consola
         mostrarEstadisticas();
     }
 
     private void configurarEventos() {
-        // Evento: Filtrar al cambiar el ComboBox
         comboBoxEstado.setOnAction(event -> filtrarPorEstado());
 
-        // Evento: Al seleccionar una habitación en la tabla (opcional)
         tablaHabitaciones.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
                 mostrarDetallesHabitacion(newVal);
@@ -128,10 +118,8 @@ public class HabitacionesController implements Initializable {
         String estadoSeleccionado = comboBoxEstado.getValue();
 
         if (estadoSeleccionado == null || estadoSeleccionado.equals("Todas")) {
-            // Mostrar todas las habitaciones
             listaHabitaciones.setAll(todasLasHabitaciones);
         } else {
-            // Filtrar por estado seleccionado
             List<Habitacion> habitacionesFiltradas = habitacionDAO.findByEstado(estadoSeleccionado);
             listaHabitaciones.setAll(habitacionesFiltradas);
 
@@ -180,10 +168,10 @@ public class HabitacionesController implements Initializable {
         System.out.println("═══════════════════════════════════");
         System.out.println("ESTADÍSTICAS DE HABITACIONES:");
         System.out.println("  Total: " + todasLasHabitaciones.size());
-        System.out.println("  ✓ Disponibles: " + disponibles);
-        System.out.println("  ✗ Ocupadas: " + ocupadas);
-        System.out.println("  ⏱ Reservadas: " + reservadas);
-        System.out.println("  🔧 Mantenimiento: " + mantenimiento);
+        System.out.println("  Disponibles: " + disponibles);
+        System.out.println("  Ocupadas: " + ocupadas);
+        System.out.println("  Reservadas: " + reservadas);
+        System.out.println("  Mantenimiento: " + mantenimiento);
         System.out.println("═══════════════════════════════════");
     }
 

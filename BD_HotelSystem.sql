@@ -1,5 +1,6 @@
-create database HotelSystem;
-use HotelSystem;
+DROP DATABASE IF EXISTS HotelSystem;
+CREATE DATABASE HotelSystem;
+USE HotelSystem;
 
 -- TABLA TIPO HAB.
 create table TipoHabitacion(
@@ -131,11 +132,11 @@ INSERT INTO Administrador (idEmpleado, correoElectronico) VALUES
 
 -- 6) Cliente (5 inserts)
 INSERT INTO Cliente (nombre, apellidoPaterno, apellidoMaterno, dni, telefono, email) VALUES
-('Luis', 'Chafloque', 'Avellaneda', '11122233', '+51 945111222', 'luis.huaman@example.com'),
-('Maria', 'Lopez', 'Sanchez', '22233344', '+51 945222333', 'maria.lopez@example.com'),
-('Pedro', 'Quispe', 'Ayala', '33344455', '+51 945333444', 'pedro.quispe@example.com'),
-('Sofia', 'Reyes', 'Gomez', '44455566', '+51 945444555', 'sofia.reyes@example.com'),
-('Andres', 'Delgado', 'Torres', '55566677', '+51 945555666', 'andres.delgado@example.com');
+('Luis', 'Chafloque', 'Avellaneda', '11122233', '+51 945111222', 'luis.huaman@outlook.com'),
+('Maria', 'Lopez', 'Sanchez', '22233344', '+51 945222333', 'maria.lopez@outlook.com'),
+('Pedro', 'Quispe', 'Ayala', '33344455', '+51 945333444', 'pedro.quispe@outlook.com'),
+('Sofia', 'Reyes', 'Gomez', '44455566', '+51 945444555', 'sofia.reyes@outlook.com'),
+('Andres', 'Delgado', 'Torres', '55566677', '+51 945555666', 'andres.delgado@outlook.com');
 
 -- 7) Habitacion (5 inserts) -> idTipoHabitacion debe existir en TipoHabitacion
 INSERT INTO Habitacion (idTipoHabitacion, numeroHabitacion, estado) VALUES
@@ -160,5 +161,8 @@ INSERT INTO Pago (idReserva, monto, fechaPago, metodoPago) VALUES
 (1, 151.00, '2025-11-12', 'Tarjeta de crédito'),
 (2, 50.00, '2025-11-20', 'Efectivo'),
 (3, 120.00, '2025-11-30', 'Yape'),
-(4, 0.00, '2025-11-13', 'No aplica'), -- ejemplo para reserva cancelada
+(4, 0.00, '2025-11-13', 'No aplica'),
 (5, 600.00, '2025-11-16', 'Transferencia bancaria');
+
+select * from Cliente;
+select * from administrador;

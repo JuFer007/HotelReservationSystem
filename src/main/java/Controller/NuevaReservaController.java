@@ -396,7 +396,7 @@ public class NuevaReservaController implements Initializable {
     private void limpiarFormulario() {
         nombreNuevaReserva.clear();
         apellidosNuevaReserva.clear();
-        DniNuevaReserva.clear(); // Limpiar campo DNI
+        DniNuevaReserva.clear();
         correoNuevaReserva.clear();
         cajaTelefNuevaReserva.clear();
         fechaInicioNuevaReserva.setValue(null);
